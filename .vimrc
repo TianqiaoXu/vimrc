@@ -1,6 +1,27 @@
 " filename: vimrc
 " authname: TianqiaoXu
 
+" vim-plug begin
+call plug#begin(~/.vim/plugged)
+
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'vim-scripts/taglist.vim'
+Plug 'rdnetto/YCM-Genertor', { 'branch': 'stable' }
+Plug 'terryma/vim-smooth-scroll'
+Plug 'airline/airline'
+Plug 'airline/airline-themes'
+Plug 'altercation/solarized'
+Plug 'scrooloose/nerdcommenter'
+Plug 'ycm-core/YouCompleteMe', { 'do': './install.py' }
+
+" vim-plug end
+call plug#end()
+
+" nerdtree
+map <F2> :NERDTreeToggle<CR>
+
 " basis
 syntax on
 set nu
