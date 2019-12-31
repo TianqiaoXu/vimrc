@@ -4,10 +4,10 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'vim-scripts/taglist.vim'
-Plug 'rdnetto/YCM-Genertor', { 'branch': 'stable' }
+Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
 Plug 'terryma/vim-smooth-scroll'
-Plug 'airline/airline'
-Plug 'airline/airline-themes'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'altercation/solarized'
 Plug 'scrooloose/nerdcommenter'
 Plug 'ycm-core/YouCompleteMe', { 'do': './install.py' }
