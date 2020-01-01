@@ -1,6 +1,5 @@
 if empty(glob('~/.vim/autoload/plug.vim'))
-    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-        \  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
@@ -15,7 +14,6 @@ set clipboard=unnamed
 set number
 set relativenumber
 set ruler
-set cursorline
 syntax enable
 syntax on
 
@@ -122,7 +120,7 @@ call plug#end()
 
 " Dress
 set termguicolors
-let g:airline_theme='dracula'
+"let g:airline_theme='dracula'
 
 " YCM
 nnoremap gd :YcmCompleter GoToDefinitionElseDeclaration<CR>
@@ -132,7 +130,6 @@ nnoremap gr :YcmCompleter GoToReferences<CR>
 let g:ycm_autoclose_preview_window_after_completion=0
 let g:ycm_autoclose_preview_window_after_insertion=1
 let g:ycm_use_clangd = 0
-let g:ycm_python_binary_path = g:ycm_python_interpreter_path
 
 " Nerd tree
 map <F2> :NERDTreeToggle<CR>
