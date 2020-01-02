@@ -149,8 +149,3 @@ set noerrorbells
 set history=1000
 set autoread
 
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-h> <C-w>h
-map <C-l> <C-w>l
-
