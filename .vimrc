@@ -55,14 +55,14 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 let mapleader=" "
 
 nnoremap Q :q<cr>
-nnoremap S :w<cr>
+nnoremap W :w<cr>
 
 nnoremap n nzz
 nnoremap N Nzz
 
 nnoremap J 5j
 nnoremap K 5k
-nnoremap L 5L
+nnoremap L 5l
 nnoremap H 5h
 
 nnoremap M $
@@ -71,6 +71,7 @@ map <leader>j <C-w>j
 map <leader>k <C-w>k
 map <leader>h <C-w>h
 map <leader>l <C-w>l
+map <leader><cr> :nohl<cr>
 
 nnoremap sk :set nosplitbelow<cr>:split<cr>:set splitbelow<cr>
 nnoremap sj :set splitbelow<cr>:split<cr>
@@ -119,8 +120,8 @@ Plug 'scrooloose/nerdcommenter'
 call plug#end()
 
 " Dress
-set termguicolors
-"let g:airline_theme='dracula'
+"set termguicolors
+let g:airline_theme='dracula'
 
 " YCM
 nnoremap gd :YcmCompleter GoToDefinitionElseDeclaration<CR>
@@ -132,10 +133,21 @@ let g:ycm_autoclose_preview_window_after_insertion=1
 let g:ycm_use_clangd = 0
 
 " Nerd tree
-map <F2> :NERDTreeToggle<CR>
+nnoremap <F2> :NERDTreeToggle<CR>
+
+" Nerd Commenter
+nnoremap cm :NERDCommenterToggle<cr>
 
 " Taglist
-nnoremap tl :TagbarOpenAutoClose<CR>
+nnoremap tl :TlistToggle<CR>
+let g:Tlist_Close_On_Select=1
+let g:Tlist_Exit_OnlyWindow=1
+let g:Tlist_Auto_Highlight_Tag=0
+let g:Tlist_Highlight_Tag_On_BufEnter=0
+let g:Tlist_File_Fold_Auto_Close=1
+let g:Tlist_Auto_Open=1
+let g:Tlist_GainFocus_On_ToggleOpen=1
+let g:Tlist_Show_One_File=1
 set tags=./tags;,tags
 
 set showcmd
