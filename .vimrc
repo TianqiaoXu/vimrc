@@ -26,7 +26,7 @@ set listchars=tab:▸\ ,trail:▫
 set scrolloff=5
 
 set wrap
-set tw=0
+set tw=80
 
 set backspace=indent,eol,start
 
@@ -65,7 +65,7 @@ nnoremap K 5k
 nnoremap L 5l
 nnoremap H 5h
 
-nnoremap M $
+nnoremap m $
 
 map <leader>j <C-w>j
 map <leader>k <C-w>k
@@ -98,6 +98,7 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
 " Taglist
 Plug 'vim-scripts/taglist.vim'
+Plug 'ludovicchabant/vim-gutentags'
 
 " YouCompleteMe
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
@@ -121,7 +122,6 @@ call plug#end()
 
 " Dress
 "set termguicolors
-let g:airline_theme='dracula'
 
 " YCM
 nnoremap gd :YcmCompleter GoToDefinitionElseDeclaration<CR>
@@ -136,10 +136,9 @@ let g:ycm_use_clangd = 0
 nnoremap <F2> :NERDTreeToggle<CR>
 
 " Nerd Commenter
-nnoremap cm :NERDCommenterToggle<cr>
 
 " Taglist
-nnoremap tl :TlistToggle<CR>
+nnoremap gl :TlistToggle<CR>
 let g:Tlist_Close_On_Select=1
 let g:Tlist_Exit_OnlyWindow=1
 let g:Tlist_Auto_Highlight_Tag=0
@@ -148,7 +147,25 @@ let g:Tlist_File_Fold_Auto_Close=1
 let g:Tlist_Auto_Open=1
 let g:Tlist_GainFocus_On_ToggleOpen=1
 let g:Tlist_Show_One_File=1
-set tags=./tags;,tags
+
+" gutentags搜索工程目录的标志，碰到这些文件/目录名就停止向上一级目录递归 "
+let g:gutentags_project_root = ['.root', '.svn', '.git', '.project']
+
+" 所生成的数据文件的名称 "
+let g:gutentags_ctags_tagfile = '.tags'
+
+" 将自动生成的 tags 文件全部放入 ~/.cache/tags 目录中，避免污染工程目录 "
+let s:vim_tags = expand('~/.cache/tags')
+let g:gutentags_cache_dir = s:vim_tags
+" 检测 ~/.cache/tags 不存在就新建 "
+if !isdirectory(s:vim_tags)
+   silent! call mkdir(s:vim_tags, 'p')
+endif
+
+" 配置 ctags 的参数 "
+let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q']
+let g:gutentags_ctags_extra_args += ['--c++-kinds=+pxI']
+let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
 
 set showcmd
 set showmode
