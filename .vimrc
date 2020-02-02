@@ -1,6 +1,6 @@
 " filename: vimrc
 " authname: xutianqiao
-" version:  noNet v1.0
+" version:  v2.0
 
 if empty(glob('~/.vim/autoload/plug.vim'))
     silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
